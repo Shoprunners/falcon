@@ -43,6 +43,9 @@
             {/images_block}
           </a>
         </div>
+        <div class="d-none">
+         {hook h='displayTop'}
+        </div>
         <div class="col d-none d-md-block text-right">
           {hook h='displayNav1'}
         </div>
