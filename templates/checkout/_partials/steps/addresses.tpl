@@ -29,6 +29,7 @@
     <form
       method="POST"
       data-id-address="{$id_address}"
+      class="needs-validation"
       action="{url entity='order' params=['id_address' => $id_address]}"
       data-refresh-url="{url entity='order' params=['ajax' => 1, 'action' => 'addressForm']}"
     >
