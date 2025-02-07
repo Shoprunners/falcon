@@ -29,10 +29,18 @@
 {/block}
 
 {block name='page_content'}
+  {$passwordfield = [
+    'name' => 'passwd',
+    'type' => 'password',
+    'errors'=>[],
+    'required'=>true,
+    'label'=>{l s='New password' d='Shop.Forms.Labels'}
+  ]}
+
   <form action="{$urls.pages.password}" method="post" class="card user-form user-form--sm">
     <section class="form-fields card-body">
       {if $errors}
-        <div class="alert alert-error">
+        <div class="alert alert-danger">
           {foreach $errors as $error}
             {$error}<br>
           {/foreach}
@@ -40,15 +48,12 @@
       {/if}
 
       <p>
-        {l
-          s='Email address: %email%'
-          d='Shop.Theme.Customeraccount'
-          sprintf=['%email%' => $customer_email|stripslashes]}
+        {l s='Email address: %email%' d='Shop.Theme.Customeraccount' sprintf=['%email%' => $customer_email|stripslashes]}
       </p>
-
-      <div class="form-group">
-        <label class="form-control-label">{l s='New password' d='Shop.Forms.Labels'}</label>
-        <input class="form-control" type="password" data-validate="isPasswd" name="passwd" value="">
+      <div class="field-password-policy">
+        <div class="form-group js-input-column">
+          {form_field field=$passwordfield}
+        </div>
       </div>
 
       <div class="form-group">
